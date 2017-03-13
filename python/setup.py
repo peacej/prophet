@@ -31,8 +31,8 @@ class BuildPyCommand(build_py):
             plat = 'win'
         else:
             plat = 'unix'
-
-        for model_type in ['linear', 'logistic']:
+        #removed 'logistic' from model_type list
+        for model_type in ['linear']:
             with open('stan/{}/prophet_{}_growth.stan'.format(plat, model_type)) as f:
                 model_code = f.read()
             sm = StanModel(model_code=model_code)
